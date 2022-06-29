@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fed05cc1-c17d-466c-bc77-c2b6b6e38712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="fed05cc1-c17d-466c-bc77-c2b6b6e38712" name="Changes" comment="gh pages update">
+      <change afterPath="$PROJECT_DIR$/src/Components/NumberInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Setting.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ClickCounter.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClickCounter.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ClickCounter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClickCounter.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,10 +44,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/itincubator/counter",
+    "last_opened_file_path": "D:/itincubator/todolist",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\itincubator\\counter\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -46,8 +61,20 @@
       <option name="presentableId" value="Default" />
       <updated>1655723704767</updated>
       <workItem from="1655723706017" duration="673000" />
-      <workItem from="1655728088232" duration="400000" />
+      <workItem from="1655728088232" duration="1813000" />
+      <workItem from="1655820765226" duration="1933000" />
+      <workItem from="1655979748499" duration="38873000" />
+      <workItem from="1656438633681" duration="7168000" />
+      <workItem from="1656498487097" duration="23000" />
     </task>
+    <task id="LOCAL-00001" summary="gh pages update">
+      <created>1655728718032</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1655728718032</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -56,6 +83,17 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="9ea33a16-6e3f-4fac-afb0-ba10e15ef2d8">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -66,5 +104,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="gh pages update" />
+    <option name="LAST_COMMIT_MESSAGE" value="gh pages update" />
   </component>
 </project>

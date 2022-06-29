@@ -1,26 +1,104 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {ClickCounter} from "./Components/ClickCounter";
+import Setting from "./Components/Setting";
+import s from '../src/Components/ClickCounter.module.css'
 
 function App() {
-    const start = 0;
-    const max = 5;
 
-    const [counts, setCounts] = useState<number>(start)
+    const [counts, setCounts] = useState<number>(0)
+    const [startValue, setStartValue] = useState<number>(0);
+    const [maxValue, setMaxValue] = useState<number>(0);
+    const [message, setMessage] = useState('')
+    const [messageChange,setMessageChange] = useState<boolean>(false);
+
+    const updateStartName = (value: number) => {
+        if (value < 0) {
+            setMessage('Incorrect value!')
+            setStartValue(value);
+        } else {
+            setMessage('')
+            setStartValue(value);
+        }
+        setMessageChange(true)
+
+        console.log(value)
+        console.log(startValue)
+    };
+    const updateMaxName = (value: number) => {
+        if (value < 0) {
+            setMessage('Incorrect value!')
+        } else {
+            setMaxValue(value);
+        }
+        setMessageChange(true)
+    };
+    const setData = (disabled: boolean) => {
+        setMessageChange(false)
+        setCounts(startValue);
+        setToLocalStorage(0);
+    }
+
     const increaseCount = () => {
-        counts !== max && setCounts(counts + 1)
+        const value = counts + 1
+        counts !== maxValue && setCounts(value)
+        setToLocalStorage(value)
+
     }
     const resetCount = () => {
-        setCounts(start)
+        setCounts(startValue)
+        setToLocalStorage(startValue)
     }
 
+    const setToLocalStorage = (value: number) => {
+        localStorage.setItem('counts', JSON.stringify(value))
+        localStorage.setItem('startValue', JSON.stringify(startValue))
+        localStorage.setItem('maxValue', JSON.stringify(maxValue))
+    }
+    const getFromLocalStorage = () => {
+        let valueAsString = localStorage.getItem('counter')
+        const start = localStorage.getItem('startValue');
+        const max = localStorage.getItem('maxValue')
+
+        if (start && max) {
+            setStartValue(JSON.parse(start))
+            setMaxValue(JSON.parse(max))
+            // let newValue = JSON.parse(valueAsString)
+            // setCounts(newValue)
+        }
+    }
+    const clearLocalStorage = () => {
+        localStorage.clear()
+        setCounts(0)
+    }
+
+    useEffect(() => {
+        getFromLocalStorage()
+    },[])
+
+    const setDisabled = (startValue || maxValue) < 0 || startValue === maxValue || startValue > maxValue;
+
     return (
-        <div>
-            <ClickCounter increaseCount={increaseCount}
-                          resetCount={resetCount}
-                          counts={counts}
-                          max={max}
-                          start={start}/>
+        <div className={s.counterWindow}>
+            <div>
+                <Setting startValue={startValue}
+                         maxValue={maxValue}
+                         setData={setData}
+                         updateStartName={updateStartName}
+                         updateMaxName={updateMaxName}
+                         clearStorage={clearLocalStorage}
+                         disabled={setDisabled}
+                />
+            </div>
+            <div>
+                <ClickCounter increaseCount={increaseCount}
+                              resetCount={resetCount}
+                              counts={counts}
+                              maxValue={maxValue}
+                              startValue={startValue}
+                              messageChange={messageChange}
+                              message={message}/>
+            </div>
         </div>
     );
 }
