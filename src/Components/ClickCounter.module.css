@@ -1,41 +1,82 @@
 html {
     height: 100%
 }
+
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     background: #f2eee3;
 }
-.clickCounter {
+
+.counterWindow {
+    display: flex;
+    align-items: center;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
+    padding: 5px;
+    top: 20%;
+    left: 10%;
+}
+
+.clickCounter {
     padding: 40px;
-    transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, .6);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
-    color: #fff;
     text-align: center;
     align-items: center;
+    margin-right: 10px;
+
 }
 
 .counter {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
-    height: 60px;
+    width: 200px;
+    height: 80px;
     background: #f2eee3;
     color: black;
-    font-size: 32px;
+    font-size: 18px;
     border-radius: 8px;
     margin: auto;
 }
 
+.setWindow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f2eee3;
+    color: black;
+    font-size: 32px;
+    border-radius: 8px;
+    width: 200px;
+    height: 80px;
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.inputs input {
+    width: 50px;
+    margin: 5px;
+    text-align: center;
+}
+
+.errorInput input {
+    color: red;
+    border: red 2px solid;
+}
+
+.errorMessage {
+    color: red;
+    text-shadow: 0 0 20px red;
+}
 .limit {
     color: red;
     text-shadow: 0 0 10px red;
@@ -68,6 +109,7 @@ button:hover {
     0 0 100px #03e9f4;
 }
 
+/*------------------animation-----------------*/
 button span {
     position: absolute;
     display: block;
@@ -147,6 +189,7 @@ button span:nth-child(4) {
         bottom: 100%;
     }
 }
+
 button:disabled {
     background: #4e4e5c;
 }
