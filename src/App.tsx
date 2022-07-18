@@ -9,7 +9,7 @@ function App() {
     const [counts, setCounts] = useState<number>(0)
     const [startValue, setStartValue] = useState<number>(0);
     const [maxValue, setMaxValue] = useState<number>(0);
-    const [message, setMessage] = useState('')
+    const [message, setMessage] = useState('Enter your start and max values and press SET')
     const [messageChange,setMessageChange] = useState<boolean>(false);
 
     const updateStartName = (value: number) => {
@@ -17,26 +17,25 @@ function App() {
             setMessage('Incorrect value!')
             setStartValue(value);
         } else {
-            setMessage('')
+            setMessage('Enter your start and max values and press SET')
             setStartValue(value);
         }
         setMessageChange(true)
-
-        console.log(value)
-        console.log(startValue)
     };
     const updateMaxName = (value: number) => {
         if (value < 0) {
             setMessage('Incorrect value!')
+            setMaxValue(value);
         } else {
+            setMessage('Enter your start and max values and press SET')
             setMaxValue(value);
         }
         setMessageChange(true)
     };
     const setData = (disabled: boolean) => {
-        setMessageChange(false)
-        setCounts(startValue);
-        setToLocalStorage(0);
+            setMessageChange(false)
+            setCounts(startValue);
+            setToLocalStorage(0);
     }
 
     const increaseCount = () => {
@@ -63,8 +62,6 @@ function App() {
         if (start && max) {
             setStartValue(JSON.parse(start))
             setMaxValue(JSON.parse(max))
-            // let newValue = JSON.parse(valueAsString)
-            // setCounts(newValue)
         }
     }
     const clearLocalStorage = () => {
@@ -99,6 +96,7 @@ function App() {
                               messageChange={messageChange}
                               message={message}/>
             </div>
+
         </div>
     );
 }
