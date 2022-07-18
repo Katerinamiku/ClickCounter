@@ -3,6 +3,8 @@ import './App.css';
 import {ClickCounter} from "./Components/ClickCounter";
 import Setting from "./Components/Setting";
 import s from '../src/Components/ClickCounter.module.css'
+import {Route, Routes} from "react-router-dom";
+import Navigation from "./Components/Navigation";
 
 function App() {
 
@@ -78,23 +80,30 @@ function App() {
     return (
         <div className={s.counterWindow}>
             <div>
-                <Setting startValue={startValue}
-                         maxValue={maxValue}
-                         setData={setData}
-                         updateStartName={updateStartName}
-                         updateMaxName={updateMaxName}
-                         clearStorage={clearLocalStorage}
-                         disabled={setDisabled}
-                />
-            </div>
-            <div>
-                <ClickCounter increaseCount={increaseCount}
-                              resetCount={resetCount}
-                              counts={counts}
-                              maxValue={maxValue}
-                              startValue={startValue}
-                              messageChange={messageChange}
-                              message={message}/>
+                <Navigation/>
+                <Routes>
+                    <Route path="/" element={<Setting startValue={startValue}
+                                                      maxValue={maxValue}
+                                                      setData={setData}
+                                                      updateStartName={updateStartName}
+                                                      updateMaxName={updateMaxName}
+                                                      clearStorage={clearLocalStorage}
+                                                      disabled={setDisabled}/>}/>
+                    <Route path="/settings" element={<Setting startValue={startValue}
+                                                              maxValue={maxValue}
+                                                              setData={setData}
+                                                              updateStartName={updateStartName}
+                                                              updateMaxName={updateMaxName}
+                                                              clearStorage={clearLocalStorage}
+                                                              disabled={setDisabled}/>}/>
+                    <Route path="/counter" element={<ClickCounter increaseCount={increaseCount}
+                                                                  resetCount={resetCount}
+                                                                  counts={counts}
+                                                                  maxValue={maxValue}
+                                                                  startValue={startValue}
+                                                                  messageChange={messageChange}
+                                                                  message={message}/>}/>
+                </Routes>
             </div>
 
         </div>
