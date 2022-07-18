@@ -23,13 +23,13 @@ export const ClickCounter = (props: ClickCounterPropsType) => {
         message = props.messageChange
     }
 
-    const classes = (props.counts === props.maxValue) ? s.limit : '';
+    const classes = (props.counts === props.maxValue && props.maxValue !== 0) ? s.limit : '';
     const errorMessage = s.errorMessage
 
     return (
         <div className={s.clickCounter}>
             <div
-                className={`${s.counter} ${!props.message ? classes : errorMessage}`}>
+                className={`${s.counter} ${props.message === 'Incorrect value!' ? errorMessage : classes}`}>
                 {message ? message : props.counts }
             </div>
             <Button
