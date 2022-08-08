@@ -3,8 +3,7 @@ import './App.css';
 import {ClickCounter} from "./Components/ClickCounter";
 import Setting from "./Components/Setting";
 import s from '../src/Components/ClickCounter.module.css'
-import {Route, Routes} from "react-router-dom";
-import Navigation from "./Components/Navigation";
+
 
 function App() {
 
@@ -12,9 +11,9 @@ function App() {
     const [startValue, setStartValue] = useState<number>(0);
     const [maxValue, setMaxValue] = useState<number>(0);
     const [message, setMessage] = useState('Enter your start and max values and press SET')
-    const [messageChange,setMessageChange] = useState<boolean>(false);
+    const [messageChange, setMessageChange] = useState<boolean>(false);
 
-    const updateStartName = (value: number) => {
+    const updateStartValue = (value: number) => {
         if (value < 0) {
             setMessage('Incorrect value!')
             setStartValue(value);
@@ -35,9 +34,9 @@ function App() {
         setMessageChange(true)
     };
     const setData = (disabled: boolean) => {
-            setMessageChange(false)
-            setCounts(startValue);
-            setToLocalStorage(0);
+        setMessageChange(false)
+        setCounts(startValue);
+        setToLocalStorage(0);
     }
 
     const increaseCount = () => {
@@ -73,39 +72,30 @@ function App() {
 
     useEffect(() => {
         getFromLocalStorage()
-    },[])
+    }, [])
 
     const setDisabled = (startValue || maxValue) < 0 || startValue === maxValue || startValue > maxValue;
 
     return (
         <div className={s.counterWindow}>
             <div>
-                <Navigation/>
-                <Routes>
-                    <Route path="/" element={<Setting startValue={startValue}
-                                                      maxValue={maxValue}
-                                                      setData={setData}
-                                                      updateStartName={updateStartName}
-                                                      updateMaxName={updateMaxName}
-                                                      clearStorage={clearLocalStorage}
-                                                      disabled={setDisabled}/>}/>
-                    <Route path="/settings" element={<Setting startValue={startValue}
-                                                              maxValue={maxValue}
-                                                              setData={setData}
-                                                              updateStartName={updateStartName}
-                                                              updateMaxName={updateMaxName}
-                                                              clearStorage={clearLocalStorage}
-                                                              disabled={setDisabled}/>}/>
-                    <Route path="/counter" element={<ClickCounter increaseCount={increaseCount}
-                                                                  resetCount={resetCount}
-                                                                  counts={counts}
-                                                                  maxValue={maxValue}
-                                                                  startValue={startValue}
-                                                                  messageChange={messageChange}
-                                                                  message={message}/>}/>
-                </Routes>
+                <Setting startValue={startValue}
+                         maxValue={maxValue}
+                         setData={setData}
+                         updateStartName={updateStartValue}
+                         updateMaxName={updateMaxName}
+                         clearStorage={clearLocalStorage}
+                         disabled={setDisabled}/>
             </div>
-
+            <div>
+                <ClickCounter increaseCount={increaseCount}
+                              resetCount={resetCount}
+                              counts={counts}
+                              maxValue={maxValue}
+                              startValue={startValue}
+                              messageChange={messageChange}
+                              message={message}/>
+            </div>
         </div>
     );
 }
