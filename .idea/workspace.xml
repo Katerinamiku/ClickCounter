@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fed05cc1-c17d-466c-bc77-c2b6b6e38712" name="Changes" comment="updated counter with settings">
+    <list default="true" id="fed05cc1-c17d-466c-bc77-c2b6b6e38712" name="Changes" comment="upgraded counter with Routes">
+      <change afterPath="$PROJECT_DIR$/src/redux/CountsReducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/MaxValueReducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/MessagesReducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/StartValueReducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/store.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exam1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exam1/.idea/exam1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exam1/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exam1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exam1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ClickCounter.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClickCounter.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ClickCounter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClickCounter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Setting.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Setting.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -28,13 +28,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="upgardedCounter" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2Aq4IrScWJiXezIXsBcW0gM8lzT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -44,20 +47,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/itincubator/counter&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\itincubator\\counter\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/itincubator/counter",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\itincubator\\counter\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -74,7 +77,10 @@
       <workItem from="1656498487097" duration="23000" />
       <workItem from="1656498722001" duration="232000" />
       <workItem from="1657029335772" duration="415000" />
-      <workItem from="1658153575675" duration="3303000" />
+      <workItem from="1658153575675" duration="5539000" />
+      <workItem from="1658412001706" duration="147000" />
+      <workItem from="1658412318518" duration="16000" />
+      <workItem from="1659961277403" duration="3456000" />
     </task>
     <task id="LOCAL-00001" summary="gh pages update">
       <created>1655728718032</created>
@@ -90,7 +96,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656498786859</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="errors fixed">
+      <created>1658157010497</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658157010497</updated>
+    </task>
+    <task id="LOCAL-00004" summary="upgraded counter with Routes">
+      <created>1658159149353</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658159149353</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +142,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="gh pages update" />
     <MESSAGE value="updated counter with settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated counter with settings" />
+    <MESSAGE value="errors fixed" />
+    <MESSAGE value="upgraded counter with Routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgraded counter with Routes" />
   </component>
 </project>

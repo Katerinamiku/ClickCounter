@@ -4,15 +4,16 @@ import {ClickCounter} from "./Components/ClickCounter";
 import Setting from "./Components/Setting";
 import s from '../src/Components/ClickCounter.module.css'
 
+
 function App() {
 
     const [counts, setCounts] = useState<number>(0)
     const [startValue, setStartValue] = useState<number>(0);
     const [maxValue, setMaxValue] = useState<number>(0);
     const [message, setMessage] = useState('Enter your start and max values and press SET')
-    const [messageChange,setMessageChange] = useState<boolean>(false);
+    const [messageChange, setMessageChange] = useState<boolean>(false);
 
-    const updateStartName = (value: number) => {
+    const updateStartValue = (value: number) => {
         if (value < 0) {
             setMessage('Incorrect value!')
             setStartValue(value);
@@ -33,9 +34,9 @@ function App() {
         setMessageChange(true)
     };
     const setData = (disabled: boolean) => {
-            setMessageChange(false)
-            setCounts(startValue);
-            setToLocalStorage(0);
+        setMessageChange(false)
+        setCounts(startValue);
+        setToLocalStorage(0);
     }
 
     const increaseCount = () => {
@@ -71,7 +72,7 @@ function App() {
 
     useEffect(() => {
         getFromLocalStorage()
-    },[])
+    }, [])
 
     const setDisabled = (startValue || maxValue) < 0 || startValue === maxValue || startValue > maxValue;
 
@@ -81,11 +82,10 @@ function App() {
                 <Setting startValue={startValue}
                          maxValue={maxValue}
                          setData={setData}
-                         updateStartName={updateStartName}
+                         updateStartName={updateStartValue}
                          updateMaxName={updateMaxName}
                          clearStorage={clearLocalStorage}
-                         disabled={setDisabled}
-                />
+                         disabled={setDisabled}/>
             </div>
             <div>
                 <ClickCounter increaseCount={increaseCount}
@@ -96,7 +96,6 @@ function App() {
                               messageChange={messageChange}
                               message={message}/>
             </div>
-
         </div>
     );
 }

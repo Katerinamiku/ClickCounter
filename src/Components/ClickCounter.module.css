@@ -9,13 +9,42 @@ body {
     background: #f2eee3;
 }
 
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: rgba(0, 0, 0, .6);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.item a {
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: 2px;
+    background: transparent;
+    border: none;
+}
+
+a.active {
+    color: rgba(55, 247, 255, 0.62);
+}
+
 .counterWindow {
     display: flex;
     align-items: center;
     position: absolute;
     padding: 5px;
     top: 20%;
-    left: 10%;
+    left: 30%;
 }
 
 .clickCounter {
