@@ -10,28 +10,23 @@ type SettingType = {
     setData: (disabled: boolean) => void
     updateStartName: (value: number) => void
     updateMaxName: (value: number) => void
-    clearStorage: () => void
     disabled: boolean
 }
 
 const Setting = (props: SettingType) => {
-
-    //    const change = (e: ChangeEvent<HTMLInputElement>) => {
-    //     props.updateStartName(+e.currentTarget.value)
-    // }
 
     return (
         <div className={s.clickCounter}>
             <div className={s.setWindow}>
                 <div className={props.startValue < 0 ? s.errorInput : ''}>
                     <NumberInput callback={props.updateStartName}
-                                 callBackClear={props.clearStorage}
+
                                  value={props.startValue}>
                         start value:</NumberInput>
                 </div>
                 <div className={props.maxValue < 0 ? s.errorInput : ''}>
                     <NumberInput callback={props.updateMaxName}
-                                 callBackClear={props.clearStorage}
+
                                  value={props.maxValue}>
                         max value:</NumberInput>
                 </div>
