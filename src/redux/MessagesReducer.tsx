@@ -1,9 +1,8 @@
 import React from 'react';
-import {SetStartValueAT} from "./StartValueReducer";
-import {SetMaxValueAT} from "./MaxValueReducer";
 
 
-export type ActionType = SetStartValueAT | SetMaxValueAT
+
+
 
 const initialState: string = 'Enter your start and max values and press SET';
 

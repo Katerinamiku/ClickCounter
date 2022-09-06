@@ -1,78 +1,58 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
 import {ClickCounter} from "./Components/ClickCounter";
 import Setting from "./Components/Setting";
 import s from '../src/Components/ClickCounter.module.css'
+import {AppRootStateType} from "./redux/store";
+import {useDispatch, useSelector} from "react-redux";
+import {incCountsAC,
+    resetCountAC,
+    setMaxValueAC,
+    setStartValueAC,
+} from "./redux/CountsReducer";
 
 
 function App() {
-
-    const [counts, setCounts] = useState<number>(0)
-    const [startValue, setStartValue] = useState<number>(0);
-    const [maxValue, setMaxValue] = useState<number>(0);
-    const [message, setMessage] = useState('Enter your start and max values and press SET')
-    const [messageChange, setMessageChange] = useState<boolean>(false);
+    const dispatch = useDispatch();
+    const counts = useSelector<AppRootStateType, number>(state => state.counts.count);
+    const startValue = useSelector<AppRootStateType, number>(state => state.counts.startValue)
+    const maxValue = useSelector<AppRootStateType, number>(state => state.counts.maxValue)
 
     const updateStartValue = (value: number) => {
-        if (value < 0) {
-            setMessage('Incorrect value!')
-            setStartValue(value);
-        } else {
-            setMessage('Enter your start and max values and press SET')
-            setStartValue(value);
-        }
-        setMessageChange(true)
+        dispatch(setStartValueAC(value));
     };
     const updateMaxName = (value: number) => {
-        if (value < 0) {
-            setMessage('Incorrect value!')
-            setMaxValue(value);
-        } else {
-            setMessage('Enter your start and max values and press SET')
-            setMaxValue(value);
-        }
-        setMessageChange(true)
+        dispatch(setMaxValueAC(value));
     };
-    const setData = (disabled: boolean) => {
-        setMessageChange(false)
-        setCounts(startValue);
-        setToLocalStorage(0);
+    const setData = () => {
+        dispatch(resetCountAC())
     }
-
     const increaseCount = () => {
-        const value = counts + 1
-        counts !== maxValue && setCounts(value)
-        setToLocalStorage(value)
-
+        dispatch(incCountsAC())
     }
     const resetCount = () => {
-        setCounts(startValue)
-        setToLocalStorage(startValue)
+        dispatch(resetCountAC())
     }
 
-    const setToLocalStorage = (value: number) => {
-        localStorage.setItem('counts', JSON.stringify(value))
-        localStorage.setItem('startValue', JSON.stringify(startValue))
-        localStorage.setItem('maxValue', JSON.stringify(maxValue))
-    }
-    const getFromLocalStorage = () => {
-        let valueAsString = localStorage.getItem('counter')
-        const start = localStorage.getItem('startValue');
-        const max = localStorage.getItem('maxValue')
 
-        if (start && max) {
-            setStartValue(JSON.parse(start))
-            setMaxValue(JSON.parse(max))
-        }
-    }
-    const clearLocalStorage = () => {
-        localStorage.clear()
-        setCounts(0)
-    }
+    // const getFromLocalStorage = () => {
+    //     let valueAsString = localStorage.getItem('counter')
+    //     const start = localStorage.getItem('startValue');
+    //     const max = localStorage.getItem('maxValue')
+    //
+    //     if (start && max) {
+    //         setStartValue(JSON.parse(start))
+    //         setMaxValue(JSON.parse(max))
+    //     }
+    // }
+    // const clearLocalStorage = () => {
+    //     localStorage.clear()
+    //     setCounts(0)
+    // }
 
-    useEffect(() => {
-        getFromLocalStorage()
-    }, [])
+    // useEffect(() => {
+    //     dispatch(setValuesFromLocalStorageTC() as any);
+    // }, [])
 
     const setDisabled = (startValue || maxValue) < 0 || startValue === maxValue || startValue > maxValue;
 
@@ -84,7 +64,6 @@ function App() {
                          setData={setData}
                          updateStartName={updateStartValue}
                          updateMaxName={updateMaxName}
-                         clearStorage={clearLocalStorage}
                          disabled={setDisabled}/>
             </div>
             <div>
@@ -92,9 +71,7 @@ function App() {
                               resetCount={resetCount}
                               counts={counts}
                               maxValue={maxValue}
-                              startValue={startValue}
-                              messageChange={messageChange}
-                              message={message}/>
+                              startValue={startValue}/>
             </div>
         </div>
     );

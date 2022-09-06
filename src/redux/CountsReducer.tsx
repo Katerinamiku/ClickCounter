@@ -1,48 +1,110 @@
 import React from 'react';
-import {store} from "./store";
+import {Dispatch} from "redux";
+import {AppRootStateType} from "./store";
 
-type SetDataAT = {
-    type: 'SET_DATA'
-    disabled: boolean
-}
-type IncreaseCountAT = {
-    type: 'INCREASE_COUNT'
-}
-type ResetCountAT = {
-    type: 'RESET_COUNT'
-}
-export type ActionType = SetDataAT | IncreaseCountAT | ResetCountAT
 
-const initialState: number = 0;
+export type ActionType =
+    ReturnType<typeof incCountsAC>
+    | ReturnType<typeof setStartValueAC>
+    | ReturnType<typeof setMaxValueAC>
+    | ReturnType<typeof resetCountAC>
 
-export const CountsReducer = (state = initialState, action: ActionType): number => {
+
+
+type InitialValueType = {
+    count: number
+    maxValue: number
+    startValue: number
+}
+
+const initialState = {
+    count: 0,
+    maxValue: 0,
+    startValue: 0
+};
+
+export const CountsReducer = (state: InitialValueType = initialState, action: ActionType): InitialValueType => {
     switch (action.type) {
-        case 'SET_DATA':
-            return state = store.getState().startValue
-        case 'INCREASE_COUNT':
-            return state + 1
+        case 'INC_COUNTS':
+            return {...state, count: state.count + 1}
         case 'RESET_COUNT':
-            return state = store.getState().startValue
+            return {...state, count: state.startValue}
+        case 'SET_START':
+            return {...state, startValue: action.value}
+        case 'SET_MAX':
+            return {...state, maxValue: action.value}
         default:
             return state
     }
-
 };
-
-
-export const SetDataAC = (disabled: boolean): SetDataAT => {
+//-----------------AC-------------------
+export const incCountsAC = () => {
     return {
-        type: 'SET_DATA',
-        disabled
-    }
+        type: 'INC_COUNTS'
+    } as const
 }
-export const IncreaseCountAC = (): IncreaseCountAT => {
+// export const setCountFromLS = (count: number) => {
+//     return {
+//         type: 'SET_COUNT_LS',
+//         count
+//     } as const
+// }
+// export const setStartFromLS = (start: number) => {
+//     return {
+//         type: 'SET_START_LS',
+//         start
+//     } as const
+// }
+// export const setMaxFromLS = (max: number) => {
+//     return {
+//         type: 'SET_MAX_LS',
+//         max
+//     } as const
+// }
+export const setStartValueAC = (value: number) => {
     return {
-        type: 'INCREASE_COUNT',
-    }
+        type: 'SET_START',
+        value
+    } as const
 }
-export const ResetCountAC = (): ResetCountAT => {
+export const setMaxValueAC = (value: number) => {
     return {
-        type: 'RESET_COUNT',
-    }
+        type: 'SET_MAX',
+        value
+    } as const
 }
+export const resetCountAC = () => {
+    return {
+        type: 'RESET_COUNT'
+    } as const
+}
+//-------------THUNK------------------
+// export const incCountsTC = () => (dispatch: Dispatch, getState: () => AppRootStateType) => {
+//     let currentValue = getState().counts.count;
+//     let currentStartValue = getState().counts.startValue;
+//     let currentMaxValue = getState().counts.maxValue;
+//     localStorage.setItem('countsValue', JSON.stringify(currentValue + 1));
+//     localStorage.setItem('startValue', JSON.stringify(currentStartValue))
+//     localStorage.setItem('maxValue', JSON.stringify(currentMaxValue))
+//     dispatch(incCountsAC())
+// }
+// export const resetCountsTC = () => (dispatch: Dispatch, getState: () => AppRootStateType) => {
+//     let currentStartValue = getState().counts.startValue;
+//     let currentMaxValue = getState().counts.maxValue;
+//     localStorage.setItem('startValue', JSON.stringify(currentStartValue))
+//     localStorage.setItem('maxValue', JSON.stringify(currentMaxValue))
+//     dispatch(resetCountAC())
+// }
+// export const setValuesFromLocalStorageTC = () => (dispatch: Dispatch) => {
+//     const valueAsString = localStorage.getItem('countsValue')
+//     const start = localStorage.getItem('startValue');
+//     const max = localStorage.getItem('maxValue');
+//     if (valueAsString) {
+//         let newValue = JSON.parse(valueAsString)
+//         dispatch(setCountFromLS(newValue))
+//     }
+//     if (start && max) {
+//         dispatch(setStartFromLS(JSON.parse(start)));
+//         dispatch(setMaxFromLS(JSON.parse(max)));
+//     }
+// }
