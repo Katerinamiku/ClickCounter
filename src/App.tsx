@@ -5,18 +5,19 @@ import Setting from "./Components/Setting";
 import s from '../src/Components/ClickCounter.module.css'
 import {AppRootStateType} from "./redux/store";
 import {useDispatch, useSelector} from "react-redux";
-import {incCountsAC,
+import {
+    incCountsAC,
     resetCountAC,
     setMaxValueAC,
     setStartValueAC,
 } from "./redux/CountsReducer";
-
 
 function App() {
     const dispatch = useDispatch();
     const counts = useSelector<AppRootStateType, number>(state => state.counts.count);
     const startValue = useSelector<AppRootStateType, number>(state => state.counts.startValue)
     const maxValue = useSelector<AppRootStateType, number>(state => state.counts.maxValue)
+    const message = useSelector<AppRootStateType, string>(state => state.counts.message);
 
     const updateStartValue = (value: number) => {
         dispatch(setStartValueAC(value));
@@ -31,28 +32,8 @@ function App() {
         dispatch(incCountsAC())
     }
     const resetCount = () => {
-        dispatch(resetCountAC())
+        dispatch(resetCountAC());
     }
-
-
-    // const getFromLocalStorage = () => {
-    //     let valueAsString = localStorage.getItem('counter')
-    //     const start = localStorage.getItem('startValue');
-    //     const max = localStorage.getItem('maxValue')
-    //
-    //     if (start && max) {
-    //         setStartValue(JSON.parse(start))
-    //         setMaxValue(JSON.parse(max))
-    //     }
-    // }
-    // const clearLocalStorage = () => {
-    //     localStorage.clear()
-    //     setCounts(0)
-    // }
-
-    // useEffect(() => {
-    //     dispatch(setValuesFromLocalStorageTC() as any);
-    // }, [])
 
     const setDisabled = (startValue || maxValue) < 0 || startValue === maxValue || startValue > maxValue;
 
@@ -71,7 +52,8 @@ function App() {
                               resetCount={resetCount}
                               counts={counts}
                               maxValue={maxValue}
-                              startValue={startValue}/>
+                              startValue={startValue}
+                              message={message}/>
             </div>
         </div>
     );

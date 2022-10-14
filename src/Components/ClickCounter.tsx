@@ -7,6 +7,7 @@ type ClickCounterPropsType = {
     counts: number
     maxValue: number
     startValue: number
+    message: string
 }
 
 export const ClickCounter = (props: ClickCounterPropsType) => {
@@ -14,13 +15,13 @@ export const ClickCounter = (props: ClickCounterPropsType) => {
     const resetDisabled = props.counts === props.startValue
 
     const classes = (props.counts === props.maxValue && props.maxValue !== 0) ? s.limit : '';
-    const errorMessage = s.errorMessage
+    const errorMessage = (props.message !== '' ? s.errorMessage : '')
 
     return (
         <div className={s.clickCounter}>
             <div
-                className={`${s.counter} ${classes}`}>
-                {props.counts }
+                className={`${s.counter} ${classes} ${errorMessage}`}>
+                {props.message !== '' ? props.message : props.counts}
             </div>
             <Button
                 disabled={increaseDisabled}
