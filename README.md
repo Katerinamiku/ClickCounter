@@ -1,7 +1,10 @@
 
 # Click counter
 
-Simple click counter on React with local storage applied.
+Simple click counter on React. 
+- Start and max values can be setted;
+- Info and error messages; 
+- Local storage is applied.
 
 <p align="left"><img src="https://s8.gifyu.com/images/video_2022-07-12_16-50-32-1.gif" width="450"/> </p>
 
